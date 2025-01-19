@@ -1,12 +1,5 @@
 <template>
-  <table class="w-full border-collapse border border-gray-300">
-    <thead>
-      <tr class="bg-gray-200">
-        <th class="border border-gray-300 p-2">Preview</th>
-        <th class="border border-gray-300 p-2">Name</th>
-        <th class="border border-gray-300 p-2">Actions</th>
-      </tr>
-    </thead>
+  <table class="w-full table-auto">
     <tbody>
       <TableRow
         v-for="page in pages"
@@ -19,16 +12,10 @@
   </table>
 </template>
 
-<script>
+<script setup>
 import TableRow from './LandingPageTableRow.vue'
 
-export default {
-  name: 'LandingPageTable',
-  props: {
-    pages: Array,
-  },
-  components: {
-    TableRow,
-  },
-}
+defineProps({
+  pages: Array,
+})
 </script>
