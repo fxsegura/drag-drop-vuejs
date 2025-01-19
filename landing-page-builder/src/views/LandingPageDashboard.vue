@@ -1,50 +1,50 @@
 <template>
-  <div class="p-4">
-    <h1 class="text-2xl font-bold mb-4">Landing Pages Dashboard</h1>
-    <button
-      @click="createNewPage"
-      class="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-    >
-      Create New Page
-    </button>
-    <LandingPageTable :pages="pages" @editPage="editPage" @deletePage="deletePage" />
+  <div class="w-full p-56">
+    <div class="flex flex-col">
+      <h1 class="text-2xl font-bold mb-4">Landing Pages Dashboard</h1>
+      <div class="flex justify-end">
+        <button
+          @click="createNewPage"
+          class="mb-4 px-4 py-2 bg-[#09C269] text-white rounded hover:bg-blue-600"
+        >
+          Create New Page
+        </button>
+      </div>
+      <div class="w-full bg-[#363638]">
+        <LandingPageTable :pages="pages" @editPage="editPage" @deletePage="deletePage" />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import LandingPageTable from '../components/LandingPageTable.vue'
 
-export default {
-  name: 'LandingPageDashboard',
-  components: {
-    LandingPageTable,
+const router = useRouter()
+const pages = ref([
+  {
+    id: 1,
+    name: 'Sample Page 1',
+    preview: 'https://dummyimage.com/600x400/000/fff&text=test+image',
   },
-  data() {
-    return {
-      pages: [
-        {
-          id: 1,
-          name: 'Sample Page 1',
-          preview: 'https://via.placeholder.com/150',
-        },
-        {
-          id: 2,
-          name: 'Sample Page 2',
-          preview: 'https://via.placeholder.com/150',
-        },
-      ],
-    }
+  {
+    id: 2,
+    name: 'Sample Page 2',
+    preview: 'https://dummyimage.com/600x400/000/fff&text=test+image',
   },
-  methods: {
-    createNewPage() {
-      this.$router.push({ name: 'Builder' })
-    },
-    editPage(pageId) {
-      this.$router.push({ name: 'Builder', query: { id: pageId } })
-    },
-    deletePage(pageId) {
-      this.pages = this.pages.filter((page) => page.id !== pageId)
-    },
-  },
+])
+
+const createNewPage = () => {
+  router.push({ name: 'Builder' })
+}
+
+const editPage = (pageId) => {
+  router.push({ name: 'Builder', query: { id: pageId } })
+}
+
+const deletePage = (pageId) => {
+  pages.value = pages.value.filter((page) => page.id !== pageId)
 }
 </script>
