@@ -20,7 +20,7 @@
       <h1 class="pl-16">Landing Page Builder</h1>
       <div class="flex-grow"></div>
       <div class="flex">
-        <button @click="savePage" class="px-4 py-2 bg-green-500 rounded hover:bg-green-600">
+        <button @click="savePage" class="px-4 py-2 rounded bg-[#09C269] hover:bg-[#079B54]">
           Save
         </button>
       </div>
@@ -31,7 +31,7 @@
       <BuilderToolbar @addBlock="addBlock" />
 
       <!-- Canvas -->
-      <div class="flex-1 items-center">
+      <div class="flex-1 lg:px-64 items-center">
         <BuilderCanvas
           :elements="elements"
           @updateElement="updateElement"

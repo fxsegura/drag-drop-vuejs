@@ -14,7 +14,7 @@
           >
             <button
               @click="$emit('editPage')"
-              class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              class="px-4 py-2 bg-[#09C269] hover:bg-[#079B54] text-white rounded"
             >
               Edit
             </button>
