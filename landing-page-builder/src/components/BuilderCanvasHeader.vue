@@ -22,26 +22,20 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6">
-        <a href="/" class="text-gray-300 hover:text-[#363638]">Home</a>
-        <a href="/about" class="text-gray-300 hover:text-[#363638]">About Us</a>
-        <a href="/services" class="text-gray-300 hover:text-[#363638]">Services</a>
-        <a href="/contact" class="text-gray-300 hover:text-[#363638]">Contact</a>
+        <a class="text-gray-300 hover:text-[#363638]">Home</a>
+        <a class="text-gray-300 hover:text-[#363638]">About Us</a>
+        <a class="text-gray-300 hover:text-[#363638]">Services</a>
+        <a class="text-gray-300 hover:text-[#363638]">Contact</a>
       </nav>
 
       <!-- Contact Button (Desktop) -->
       <div class="hidden md:block">
-        <a href="/contact" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-          Contact Us
-        </a>
+        <a class="bg-[#09C269] text-white px-4 py-2 rounded hover:bg-[#079B54]"> Contact Us </a>
       </div>
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button
-          id="mobile-menu-toggle"
-          @click="mobileMenuToggle"
-          class="text-gray-300 hover:text-white focus:outline-none"
-        >
+        <button id="mobile-menu-toggle" @click="mobileMenuToggle" class="text-gray-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -57,14 +51,25 @@
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="md:hidden flex-col items-center space-y-4 bg-gray-800 py-4 hidden">
-      <a href="/" class="text-gray-300 hover:text-white">Home</a>
-      <a href="/about" class="text-gray-300 hover:text-white">About</a>
-      <a href="/services" class="text-gray-300 hover:text-white">Services</a>
-      <a href="/contact" class="text-gray-300 hover:text-white">Contact</a>
-      <a href="/contact" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+    <div
+      id="mobile-menu"
+      class="md:hidden flex flex-col items-center justify-center align-center space-y-4 bg-gray-800 py-4 hidden"
+    >
+      <ul class="text-gray-300 hover:text-white">
+        Home
+      </ul>
+      <ul class="text-gray-300 hover:text-white">
+        About
+      </ul>
+      <ul class="text-gray-300 hover:text-white">
+        Services
+      </ul>
+      <ul class="text-gray-300 hover:text-white">
+        Contact
+      </ul>
+      <ul class=" ">
         Contact Us
-      </a>
+      </ul>
     </div>
   </header>
 </template>
