@@ -36,12 +36,12 @@ const pages = ref([
   {
     id: 1,
     name: 'Sample Page 1',
-    preview: 'https://dummyimage.com/600x400/000/fff&text=test+image',
+    preview: 'src/assets/pageskeleton2.gif',
   },
   {
     id: 2,
     name: 'Sample Page 2',
-    preview: 'https://dummyimage.com/600x400/000/fff&text=test+image',
+    preview: 'src/assets/pageskeleton2.gif',
   },
 ])
 
