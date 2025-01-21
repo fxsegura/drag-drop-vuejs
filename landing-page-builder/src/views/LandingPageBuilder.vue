@@ -25,10 +25,8 @@
         </button>
       </div>
     </div>
-
     <div class="flex min-h-screen bg-[#1E1E1F]">
       <BuilderToolbar />
-
       <div class="flex-1 lg:px-64 items-center">
         <BuilderCanvas ref="elements" />
       </div>
@@ -40,13 +38,20 @@
 import { ref } from 'vue'
 import BuilderToolbar from '@/components/BuilderToolbar.vue'
 import BuilderCanvas from '@/components/BuilderCanvas.vue'
+import { saveLandingPage } from '@/api/landingPageApi'
 
 const elements = ref([])
 
-const savePage = () => {
+const savePage = async () => {
   if (elements.value) {
     const data = elements.value.generateJson()
     console.log(data)
+    try {
+      const response = await saveLandingPage('Sample Page', JSON.stringify(data))
+      console.log('Landing page saved:', response)
+    } catch (error) {
+      console.error('Failed to save landing page:', error)
+    }
   }
 }
 </script>
