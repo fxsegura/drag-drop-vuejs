@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col min-h-screen">
     <BuilderCanvasHeader />
 
-    <div class="flex-grow bg-white border overflow-auto p-4">
+    <div class="flex-grow bg-white border p-4">
       <VueDraggable
         v-model="canvasElements"
         :group="{ name: 'blocks', pull: false, put: true }"

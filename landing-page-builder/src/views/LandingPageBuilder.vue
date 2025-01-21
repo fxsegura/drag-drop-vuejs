@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-screen overflow-hidden h-full">
+  <div class="w-full max-w-screen overflow-x-hidden h-full">
     <div class="flex flex-row py-4 px-4 text-white bg-[#363638] items-center">
       <router-link to="/">
         <svg
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="flex h-screen bg-[#1E1E1F]">
+    <div class="flex min-h-screen bg-[#1E1E1F]">
       <!-- Toolbar -->
       <BuilderToolbar @addBlock="addBlock" />
 
