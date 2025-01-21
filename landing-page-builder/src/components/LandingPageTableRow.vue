@@ -2,7 +2,11 @@
   <tr class="border-y border-gray-600 border-collapse hover:bg-[#2D2D2E]">
     <td class="p-4">
       <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
-        <img :src="page.preview" alt="Preview" class="w-full md:w-96 md:h-96 rounded" />
+        <img
+          :src="'src/assets/pageskeleton2.gif'"
+          alt="Preview"
+          class="w-full md:w-96 md:h-96 rounded"
+        />
         <div
           class="flex flex-col space-y-4 md:space-y-0 md:justify-between md:flex-row md:items-center w-full"
         >
@@ -12,12 +16,12 @@
           <div
             class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 text-center md:text-right"
           >
-            <button
+            <!-- <button
               @click="$emit('editPage')"
               class="px-4 py-2 bg-[#09C269] hover:bg-[#079B54] text-white rounded"
             >
               Edit
-            </button>
+            </button> -->
             <button
               @click="$emit('deletePage')"
               class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"

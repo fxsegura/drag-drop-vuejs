@@ -30,20 +30,22 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import LandingPageTable from '../components/LandingPageTable.vue'
+import { getLandingPages, deleteLandingPage } from '@/api/landingPageApi'
 
 const router = useRouter()
-const pages = ref([
-  {
-    id: 1,
-    name: 'Sample Page 1',
-    preview: 'src/assets/pageskeleton2.gif',
-  },
-  {
-    id: 2,
-    name: 'Sample Page 2',
-    preview: 'src/assets/pageskeleton2.gif',
-  },
-])
+const pages = ref([])
+
+const fetchPages = async () => {
+  try {
+    const response = await getLandingPages()
+    pages.value = response
+    console.log('Fetched landing pages:', pages.value)
+  } catch (error) {
+    console.error('Failed to fetch landing pages:', error)
+  }
+}
+
+fetchPages()
 
 const createNewPage = () => {
   router.push({ name: 'Builder' })
@@ -53,7 +55,13 @@ const editPage = (pageId) => {
   router.push({ name: 'Builder', query: { id: pageId } })
 }
 
-const deletePage = (pageId) => {
-  pages.value = pages.value.filter((page) => page.id !== pageId)
+const deletePage = async (pageId) => {
+  try {
+    await deleteLandingPage(pageId)
+    pages.value = pages.value.filter((page) => page.id !== pageId)
+    console.log('Deleted landing page:', pageId)
+  } catch (error) {
+    console.error('Failed to delete landing page:', error)
+  }
 }
 </script>
