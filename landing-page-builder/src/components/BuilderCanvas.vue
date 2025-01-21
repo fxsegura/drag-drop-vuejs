@@ -9,13 +9,28 @@
         item-key="id"
         :ghost-class="'drop-preview'"
         :animation="150"
-        class="h-full space-y-4 flex flex-col gap-2 p-4 flex-1 rounded"
+        handle=".handle"
+        class="h-full space-y-4 flex flex-col gap-2 p-4 flex-1"
       >
-        <div
-          v-for="element in canvasElements"
-          :key="element.id"
-          class="relative cursor-move shadow-md"
-        >
+        <div v-for="element in canvasElements" :key="element.id" class="relative group">
+          <div
+            class="absolute top-1/2 left-[-20px] transform -translate-y-1/2 hidden group-focus:flex group-hover:flex bg-gray-600 py-2 rounded"
+          >
+            <IconHandle class="handle cursor-move text-white" />
+          </div>
+          <div
+            class="absolute right-1 bottom-8 bg-gray-600 p-2 rounded transform -translate-y-1/2 hidden group-focus:flex group-hover:flex"
+          >
+            <div class="flex flex-row items-center space-x-2">
+              <button @click="duplicateElement(element.id)" class="text-white">
+                <IconCopy />
+              </button>
+              <button @click="deleteElement(element.id)" class="text-white">
+                <IconClose />
+              </button>
+            </div>
+          </div>
+
           <component
             :is="element.type === 'text' ? 'TextBlock' : 'ImageBlock'"
             :content="element.content"
@@ -25,10 +40,6 @@
             @duplicateElement="duplicateElement"
             @updateElement="updateElementContent"
           />
-          <div class="absolute top-2 right-2">
-            <button @click="duplicateElement(element.id)" class="text-blue-500">Duplicate</button>
-            <button @click="deleteElement(element.id)" class="text-red-500 ml-2">Delete</button>
-          </div>
         </div>
       </VueDraggable>
     </div>
@@ -44,6 +55,9 @@ import BuilderCanvasHeader from './BuilderCanvasHeader.vue'
 import BuilderCanvasFooter from './BuilderCanvasFooter.vue'
 import TextBlock from './TextBlock.vue'
 import ImageBlock from './ImageBlock.vue'
+import IconHandle from './icons/IconHandle.vue'
+import IconClose from './icons/IconClose.vue'
+import IconCopy from './icons/IconCopy.vue'
 
 export default {
   components: {
@@ -52,6 +66,9 @@ export default {
     ImageBlock,
     BuilderCanvasFooter,
     BuilderCanvasHeader,
+    IconHandle,
+    IconClose,
+    IconCopy,
   },
   setup() {
     const canvasElements = ref([])
@@ -87,5 +104,14 @@ export default {
 .drop-preview {
   border: 2px dashed #09c269;
   background-color: rgba(76, 175, 80, 0.1);
+}
+
+.cursor-move:hover {
+  cursor: move;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 </style>
