@@ -91,11 +91,15 @@ export default {
       canvasElements.value = canvasElements.value.filter((el) => el.id !== id)
     }
 
+    const generateJson = () => {
+      return JSON.stringify(canvasElements.value, null, 2)
+    }
     return {
       canvasElements,
       updateElementContent,
       duplicateElement,
       deleteElement,
+      generateJson,
     }
   },
 }

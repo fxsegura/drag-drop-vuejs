@@ -27,17 +27,10 @@
     </div>
 
     <div class="flex min-h-screen bg-[#1E1E1F]">
-      <!-- Toolbar -->
-      <BuilderToolbar @addBlock="addBlock" />
+      <BuilderToolbar />
 
-      <!-- Canvas -->
       <div class="flex-1 lg:px-64 items-center">
-        <BuilderCanvas
-          :elements="elements"
-          @updateElement="updateElement"
-          @deleteElement="deleteElement"
-          @duplicateElement="duplicateElement"
-        />
+        <BuilderCanvas ref="elements" />
       </div>
     </div>
   </div>
@@ -50,35 +43,10 @@ import BuilderCanvas from '@/components/BuilderCanvas.vue'
 
 const elements = ref([])
 
-const addBlock = (type) => {
-  const newBlock = {
-    id: Date.now(),
-    type,
-    position: { x: 100, y: 100 },
-    size: { width: 200, height: 100 },
-    content: type === 'text' ? 'Editable Text' : 'https://via.placeholder.com/150',
-  }
-  elements.value.push(newBlock)
-}
-
-const updateElement = (updatedElement) => {
-  const index = elements.value.findIndex((el) => el.id === updatedElement.id)
-  if (index !== -1) elements.value[index] = updatedElement
-}
-
-const deleteElement = (id) => {
-  elements.value = elements.value.filter((el) => el.id !== id)
-}
-
-const duplicateElement = (id) => {
-  const elementToDuplicate = elements.value.find((el) => el.id === id)
-  if (elementToDuplicate) {
-    const newElement = { ...elementToDuplicate, id: Date.now() }
-    elements.value.push(newElement)
-  }
-}
-
 const savePage = () => {
-  console.log(JSON.stringify(elements.value, null, 2))
+  if (elements.value) {
+    const data = elements.value.generateJson()
+    console.log(data)
+  }
 }
 </script>
