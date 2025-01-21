@@ -4,10 +4,8 @@
     @focus="setFocused(true)"
     @blur="setFocused(false)"
   >
-    <!-- Placeholder or Selected Image -->
     <img :src="content || placeholderImage" alt="Image Block" class="w-full h-full object-cover" />
 
-    <!-- Overlay Image Picker -->
     <div
       class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 text-center transition-transform transform translate-y-full hover:translate-y-0"
     >
@@ -26,10 +24,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 defineProps({
-  id: String,
   content: String,
 })
+const isFocused = ref(false)
 
 const emit = defineEmits(['updateContent'])
 
@@ -38,7 +37,11 @@ const placeholderImage = 'src/assets/placeholderimage.png'
 const images = ['src/assets/mailerlite-logo.png', 'src/assets/vetimage.jpg', 'src/assets/cat.jpg']
 
 const updateContent = (image) => {
-  emit('updateContent', { id, content: image })
+  emit('updateContent', image)
+}
+
+const setFocused = (state) => {
+  isFocused.value = state
 }
 </script>
 
