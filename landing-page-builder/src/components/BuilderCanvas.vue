@@ -7,7 +7,6 @@
         v-model="canvasElements"
         :group="{ name: 'blocks', pull: false, put: true }"
         item-key="id"
-        :ghost-class="'drop-preview'"
         :animation="150"
         handle=".handle"
         class="h-full space-y-4 flex flex-col gap-2 p-4 flex-1"
@@ -103,11 +102,6 @@ export default {
 </script>
 
 <style scoped>
-.drop-preview {
-  border: 2px dashed #09c269;
-  background-color: rgba(76, 175, 80, 0.1);
-}
-
 .cursor-move:hover {
   cursor: move;
 }

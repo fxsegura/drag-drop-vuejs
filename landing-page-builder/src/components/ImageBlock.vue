@@ -46,10 +46,6 @@ const setFocused = (state) => {
 </script>
 
 <style scoped>
-div > div {
-  transition: transform 0.3s ease-in-out;
-}
-
 div:hover > div {
   transform: translateY(0);
 }
