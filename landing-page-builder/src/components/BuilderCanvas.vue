@@ -19,7 +19,7 @@
             <IconHandle class="handle cursor-move text-white" />
           </div>
           <div
-            class="absolute right-1 bottom-8 bg-gray-600 p-2 rounded transform -translate-y-1/2 hidden group-focus:flex group-hover:flex"
+            class="absolute right-1 top-[-15px] transform -translate-y-1/2 hidden group-focus:flex group-hover:flex bg-gray-600 p-2 rounded"
           >
             <div class="flex flex-row items-center space-x-2">
               <button @click="duplicateElement(element.id)" class="text-white">
@@ -81,7 +81,9 @@ export default {
     const duplicateElement = (id) => {
       const element = canvasElements.value.find((el) => el.id === id)
       if (element) {
-        const newElement = { ...element, id: `${id}-copy` }
+        const uniqueId = `${id}-${Date.now()}-${Math.floor(Math.random() * 1000)}`
+        const newElement = { ...element, id: uniqueId }
+
         canvasElements.value.push(newElement)
       }
     }
