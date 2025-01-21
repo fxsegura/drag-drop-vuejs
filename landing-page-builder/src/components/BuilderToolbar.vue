@@ -1,12 +1,11 @@
 <template>
-  <div class="bg-[#363638] h-full w-16 p-4 space-y-4">
+  <div class="bg-[#363638] min-h-full w-16 p-4 space-y-4">
     <VueDraggable
       v-model="toolbarItems"
-      class=""
       :animation="150"
       :group="{ name: 'blocks', pull: 'clone', put: false }"
       :sort="false"
-      @clone="onClone"
+      :clone="clone"
     >
       <div
         v-for="item in toolbarItems"
@@ -51,11 +50,16 @@
 <script setup>
 import { ref } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
+const generateId = () => Math.floor(Math.random() * 1000000)
 
 const toolbarItems = ref([
-  { id: 1, type: 'text' },
-  { id: 2, type: 'image' },
+  { id: generateId(), type: 'text' },
+  { id: generateId(), type: 'image' },
 ])
+
+const clone = (item) => {
+  return { ...item, id: generateId() }
+}
 </script>
 
 <style scoped>
