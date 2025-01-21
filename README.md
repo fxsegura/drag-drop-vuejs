@@ -7,6 +7,13 @@ Build a simple drag & drop landing page builder using any of Vue.js, Angular, Re
 
 * * * * *
 
+🎥 Video Demo
+-------------
+
+[Click here to watch the demo!](https://drive.google.com/file/d/1PWCxw7oSDbciZrmykDEw7kfnQy_tqHMC/view?usp=sharing)
+
+* * * * *
+
 🚀 Initial Requirements
 ------------------------------
 
@@ -134,8 +141,3 @@ Backend functionality was added as a bonus. It's implemented with Larvel as that
     -   Persist landing page data (name, content) in a database. Includes timestamp. 
 
 * * * * *
-
-🎥 Video Demo
--------------
-
-[Click here to watch the demo!](#)
