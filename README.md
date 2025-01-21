@@ -108,12 +108,9 @@ If you don't run the backend, the frontend should still run as specified in the 
 ✨ Features / Explanation
 ------------------------
 ### **Frontend**
-
 - **Basic Figma Design**
     -  To start, inspiration was taken from the Mailerlite site to implement something similar, easily recognizable to the user.
     -  You can find the link to the figma [HERE](https://www.figma.com/design/ywG9E3jZ4nvgLxx5kMMrbY/Untitled?node-id=2-38&t=WhU95VB4JTPXqj4l-1)
-
-### **Frontend**
 - Implemented with VueJS, Javascript, TailwindCSS, trying to emulate the company's tech stack.
 - Root page is a dashboard, which includes a basic table that renders stored landing pages when connected to backend. Also adds option to delete or create new.
 - The builder page is the core of the application and includes:  
