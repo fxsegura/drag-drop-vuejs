@@ -24,10 +24,10 @@
       <nav
         class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 justify-center items-center"
       >
-        <a href="/" class="text-gray-300 hover:text-[#363638]">Home</a>
-        <a href="/about" class="text-gray-300 hover:text-[#363638]">About Us</a>
-        <a href="/services" class="text-gray-300 hover:text-[#363638]">Services</a>
-        <a href="/contact" class="text-gray-300 hover:text-[#363638]">Contact</a>
+        <a class="text-gray-300 hover:text-[#363638]">Home</a>
+        <a class="text-gray-300 hover:text-[#363638]">About Us</a>
+        <a class="text-gray-300 hover:text-[#363638]">Services</a>
+        <a class="text-gray-300 hover:text-[#363638]">Contact</a>
       </nav>
 
       <!-- Social Media Icons -->
